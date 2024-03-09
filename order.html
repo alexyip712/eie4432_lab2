@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--21019565D YipLingShan-->
+<html>
+    <head >
+        <script src="order.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+            <title>
+                21019565d_Drink Ordering Form
+            </title>
+    </head>
+    <body>
+        <header  class = "p-3 bg-success text-warning text-center">
+            <h1>
+                Drink Ordering Form
+            </h1>
+        </header>
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- Container wrapper -->
+                <div class="container-fluid">
+                  <!-- Toggle button -->
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>              
+                  
+                  <div
+                    class="collapse navbar-collapse justify-content-center"
+                    id="navbarScroll">
+                    
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                      <li class="nav-item px-2">
+                        <a class="nav-link"  href="index.html" >Home</a>
+                      </li>
+                      <li class="nav-item px-2">
+                        <a class="nav-link active fw-bold link-success" aria-current="page" href="order.html">Order</a>
+                      </li>
+                      <li class="nav-item px-2">
+                        <a class="nav-link " href="reserve.html">Reserve a Table</a>   
+                      </li>                   
+                    </ul>                   
+                  </div>                  
+                </div>                
+              </nav>
+        <main>
+            <div class ="container py-4">
+                <form method="POST" id="order">
+                    <div>
+                        <div class="row mb-3 ">
+                            <!--<label>Name:</label>
+                            <input id="name" type="text" name="name" required>-->
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" alt="name" required >
+                            </div>
+                            
+                        </div>
+                        <div class="row mb-3">
+                            <div>
+                                <label for="drink" >Drink:</label>
+                                <select id="drink" name="drink" class="form-select ">
+                                    <option selected value="default">Please Select</option>
+                                    <option value="bubble-Milktea">
+                                        bubble Milktea
+                                    </option>
+                                    <option value="Iced-Latte">
+                                        Iced-Latte
+                                    </option>
+                                    <option value="Pineapple-Juice">
+                                        Pineapple Juice
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3 d-inline-block d-lg-flex">
+                            <div class="col d-flex d-lg-block">
+
+                                <label for="size" id="size" >Size:</label>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="size" id="small" value="Small" class="btn-check" autocomplete="off" onchange="calculatePrice(this)">
+                                    <label for="small" class="btn btn-outline-success" >Small</label>
+        
+                                </div>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="size" id="medium" value="Medium" class="btn-check" autocomplete="off" onchange="calculatePrice(this)">
+                                    <label for="medium" class="btn btn-outline-success" >Medium                                       
+                                    </label>
+        
+                                </div>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="size" id="large" value="Large" class="btn-check" autocomplete="off" onchange="calculatePrice(this)">
+                                    <label for="large" class="btn btn-outline-success">Large
+                                    </label>        
+                                </div>
+
+                            </div>
+                            <div class="col d-flex d-lg-block">
+                                <label for="ice" >Ice:</label>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="ice" id="normal" value="Normal" class="btn-check" autocomplete="off">
+                                    <label for="normal" class="btn btn-outline-success">
+                                        Normal
+                                    </label>
+        
+                                </div>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="ice" id="less" value="Less" class="btn-check" autocomplete="off">
+                                    <label for="less" class="btn btn-outline-success">
+                                        Less
+                                    </label>
+        
+                                </div>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="ice" id="without" value="Without Ice" class="btn-check" autocomplete="off">
+                                    <label for="without" class="btn btn-outline-success">
+                                        Without Ice
+                                    </label>
+        
+                                </div>
+                            </div>
+                            <div class="col d-flex d-lg-block">
+                                <label for="sweetness" >Sweetness:</label>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="sweetness" id="s100" value="s100" class="btn-check" autocomplete="off">
+                                    <label for="s100" class="btn btn-outline-success">100%</label>
+        
+                                </div>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="sweetness" id="s50" value="s50" class="btn-check" autocomplete="off">
+                                    <label for="s50" class="btn btn-outline-success">
+                                        50%
+                                    </label>
+        
+                                </div>
+                                <div class="mb-2 ms-2 ms-lg-0">
+                                    <input type="radio" name="sweetness" id="s0" value="s0" class="btn-check" autocomplete="off">
+                                    <label for="s0" class="btn btn-outline-success">
+                                        0%
+                                    </label>
+        
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row mb-3">
+                            <p class="fs-3 fw-bolder">Price: $<span id="price">0</span></p>
+                        </div>
+                        <button type="button" value="Place Order" class="btn btn-success" autocomplete="off" onclick="placeOrder(event)">Place Order</button>
+                        <button type="reset" value="Reset" class="btn btn-danger" autocomplete="off">Reset</button>
+                    </div>    
+                </form>
+            </div>
+        </main>
+        <footer class = "py-3 bg-success text-warning text-center fixed-bottom">
+            © 21019565D Yip Ling Shan - EIE4432 Lab 2 Project 
+        </footer>
+    </body>    
+</html>
